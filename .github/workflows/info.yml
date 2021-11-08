@@ -2,8 +2,8 @@ name: Periodic Workflow
 
 on:
   schedule:
-    #cada hora (0 minutos) todos los dias de la semana de Lunes a viernes
-    - cron: '0 * * * 1-5'
+    #cada 5 minutos de Lunes a viernes
+    - cron: '*/5 * * * 1-5'
 
 jobs:
   print_info:
