@@ -1,0 +1,24 @@
+name: Periodic Workflow
+
+on:
+  schedule:
+    #cada hora (0 minutos) todos los dias de la semana de Lunes a viernes
+    - cron: '0 * * * 1-5'
+
+jobs:
+  print_info:
+    runs-on: ubuntu-latest
+    steps:
+    #indica nombre del propietario del repositorio
+      - run: echo ${{github.repository_owner}}
+    #indica nombre del repositorio
+      - run: echo ${{github.repository}}
+    #indica el nombre de quien corre el job
+      - run: echo ${{runner.name}}
+    #indica OS en donde se ejecuta el trabajo  
+      - run: echo ${{runner.os}}
+    #indica el id del job (job_id) actual
+      - run: echo ${{github.job}}
+    
+    
+      
