@@ -1,0 +1,13 @@
+#Nombre
+name: Demo Workflow
+#para que se ejecute por cada push
+on: [push]
+#un unico job mensaje
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    #unico paso que despliega mensaje
+    steps:
+      - uses: actions/checkout@v2
+      - name: Desplegar mensaje
+        run: echo mensaje de prueba
