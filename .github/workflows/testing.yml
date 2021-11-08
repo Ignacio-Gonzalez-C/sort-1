@@ -1,0 +1,21 @@
+name: Unit testing Workflow
+#para que se ejecute por cada push
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+    steps:
+      #descargar la ultima version del proyecto
+      - uses: actions/checkout@v2
+      #especifica la version de python utilizando
+      - name: Utilizando Python versión ${{matrix.python-version}}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{matrix.python-version}}
+      #ejecucion de pruebas
+      - name: Ejecución de las pruebas
+        run: python test_sort.py
